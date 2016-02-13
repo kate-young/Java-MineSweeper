@@ -1,8 +1,5 @@
 package mines;
 
-/**
- * Created by KY025863 on 2/12/2016.
- */
 public class MineField {
     private int[] randoms;
     private final int rows;

@@ -1,8 +1,5 @@
 package mines;
 
-/**
- * Created by KY025863 on 2/11/2016.
- */
 public class Field {
     private int row;
     private int column;
@@ -12,7 +9,12 @@ public class Field {
     public Field(int row, int column) {
         this.row = row;
         this.column = column;
+        this.mine = false;
         this.revealed = false;
+    }
+
+    public void addMine() {
+        this.mine = true;
     }
 
     public void setMine(boolean mine) {
@@ -25,5 +27,17 @@ public class Field {
 
     public void reveal() {
         this.revealed = true;
+    }
+
+    public boolean isRevealed() {
+        return this.revealed;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
     }
 }

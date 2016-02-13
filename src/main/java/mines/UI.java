@@ -2,9 +2,6 @@ package mines;
 
 import javax.swing.*;
 
-/**
- * Created by KY025863 on 2/12/2016.
- */
 public class UI {
 
     public static void createAndShowGUI() {
@@ -15,6 +12,10 @@ public class UI {
     }
 
     public static void main(String args[]) {
-        createAndShowGUI();
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+           public void run() {
+               createAndShowGUI();
+           }
+        });
     }
 }

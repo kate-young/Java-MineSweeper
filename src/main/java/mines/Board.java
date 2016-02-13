@@ -3,9 +3,6 @@ package mines;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by KY025863 on 2/11/2016.
- */
 public class Board {
     private Map<int[], Field> fields;
     private final int rows;
@@ -22,5 +19,12 @@ public class Board {
 
     public Map<int[], Field> getFields() {
         return fields;
+    }
+
+    public Field getField(int row, int column) throws IllegalArgumentException {
+        if(row < 0 || column < 0 || row > rows || column > columns) {
+            throw new IllegalArgumentException("Field does not exist");
+        }
+        return fields.get(new int[]{row, column});
     }
 }
