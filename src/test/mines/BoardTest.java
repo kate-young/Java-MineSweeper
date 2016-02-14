@@ -15,9 +15,8 @@ public class BoardTest {
     @Test
     public void testGetField() {
         Board board = new Board(10, 20);
-        Field field = board.getFields().get(new int[] {0, 0});
-        assertEquals("Row is correct", field.getRow(),0);
-        assertEquals("Column is correct", field.getColumn(), 0);
+        assertEquals(board.getField(2,2).getRow(),2);
+        assertEquals(board.getField(2,2).getColumn(), 2);
     }
 
 }
