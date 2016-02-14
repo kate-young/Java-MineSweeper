@@ -8,6 +8,11 @@ public class UI {
         JFrame frame = new JFrame("MineSweeper");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        Board board = new Board(10, 10);
+        BoardUI boardUi = new BoardUI();
+        boardUi.setBoard(board);
+        boardUi.generateBoard();
+        frame.add(boardUi.getPanel());
         frame.setVisible(true);
     }
 

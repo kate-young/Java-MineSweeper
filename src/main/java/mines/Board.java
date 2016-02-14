@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class Board {
     private Map<String, Field> fields;
-    private final int rows;
-    private final int columns;
+    private int rows;
+    private int columns;
 
     public Board(int rows, int columns) {
         this.rows = rows;
@@ -31,5 +31,13 @@ public class Board {
             throw new IllegalArgumentException("Field does not exist");
         }
         return this.fields.get(key);
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
     }
 }
