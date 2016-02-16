@@ -20,6 +20,9 @@ public class FieldUI {
         button.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+               reveal();
+            }
+            private void reveal() {
                 String text;
                 if (field.isMine())
                     text = "X";
@@ -27,9 +30,9 @@ public class FieldUI {
                     text = "";
                 else
                     text = Integer.toString(board.getSurroundingMineCount(field));
-                reveal();
                 button.setEnabled(false);
                 button.setText(text);
+                field.reveal();
             }
         });
     }
@@ -42,7 +45,4 @@ public class FieldUI {
         return button;
     }
 
-    private void reveal() {
-        field.reveal();
-    }
 }
