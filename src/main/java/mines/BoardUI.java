@@ -10,14 +10,11 @@ public class BoardUI {
     private GridLayout layout;
 
     public BoardUI() {
+        board = Board.getInstance();
     }
 
     public Board getBoard() {
         return board;
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
     }
 
     public void generateBoard() {

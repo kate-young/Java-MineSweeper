@@ -7,16 +7,23 @@ import java.util.Map;
 
 public class Board {
     private Map<String, Field> fields;
-    private int rows;
-    private int columns;
-    private int mines;
+    private final int ROWS = 20;
+    private final int COLUMNS = 20;
+    private final int MINES = 20;
     private MineField mineField;
 
-    public Board(int rows, int columns, int mines) {
-        this.rows = rows;
-        this.columns = columns;
-        mineField = new MineField(rows, columns, mines);
+    private static Board instance = null;
+
+    protected Board() {
+        mineField = new MineField(ROWS, COLUMNS, MINES);
         generateFields();
+    }
+
+    public static Board getInstance() {
+        if(instance == null) {
+            instance = new Board();
+        }
+        return instance;
     }
 
     private void generateFields() {
@@ -24,8 +31,8 @@ public class Board {
         int counter = 0;
         Field field;
 
-        for(int r = 0; r < this.rows; r++)
-            for (int c = 0; c < this.columns; c++) {
+        for(int r = 0; r < ROWS; r++)
+            for (int c = 0; c < COLUMNS; c++) {
                 field = new Field(r, c);
                 this.fields.put(r + "_" + c, field);
                 if(mineField.getRandoms().contains(counter)) {
@@ -47,11 +54,11 @@ public class Board {
     }
 
     public int getRows() {
-        return rows;
+        return ROWS;
     }
 
     public int getColumns() {
-        return columns;
+        return COLUMNS;
     }
 
     public List<Field> getSurrounding(Field field) {
@@ -64,19 +71,19 @@ public class Board {
             surrounding.add(getField(top, field.getColumn()));
             if(left > -1)
                surrounding.add(getField(top, left));
-            if(right < rows)
+            if(right < ROWS)
                 surrounding.add(getField(top, right));
         }
-        if( bottom < rows) {
+        if( bottom < ROWS) {
             surrounding.add(getField(bottom, field.getColumn()));
             if(left > -1)
                 surrounding.add(getField(bottom, left));
-            if(right < rows)
+            if(right < ROWS)
                 surrounding.add(getField(bottom, right));
         }
         if( left > -1 )
             surrounding.add(getField(field.getRow(), left));
-        if( right < columns) {
+        if( right < COLUMNS) {
             surrounding.add(getField(field.getRow(), right));
         }
         return surrounding;
