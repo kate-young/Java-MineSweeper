@@ -52,4 +52,17 @@ public class BoardTest {
         assertTrue("Contains bottom right", board.getSurrounding(board.getField(1,1))
                 .contains(board.getField(2,2)));
     }
+
+    @Test
+    public void testGetSurroundingMineCount() {
+        Board board = new Board(5,5);
+        Field field = board.getField(0,0);
+        assertEquals("With 0 surrounding mines", board.getSurroundingMineCount(field), 0);
+        board.getField(0,1).addMine();
+        assertEquals("With 1 surrounding mine", board.getSurroundingMineCount(field), 1);
+        board.getField(1,1).addMine();
+        assertEquals("With 2 surrounding mines", board.getSurroundingMineCount(field), 2);
+        board.getField(1,0).addMine();
+        assertEquals("With 3 surrounding mines", board.getSurroundingMineCount(field), 3);
+    }
 }

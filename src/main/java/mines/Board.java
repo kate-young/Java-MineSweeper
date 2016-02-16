@@ -70,4 +70,14 @@ public class Board {
         }
         return surrounding;
     }
+
+    public int getSurroundingMineCount(Field field) {
+        int count = 0;
+        for (Field f: getSurrounding(field) ) {
+            if(f.isMine()) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
