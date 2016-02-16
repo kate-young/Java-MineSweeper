@@ -20,6 +20,7 @@ public class FieldUI {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 reveal();
+                button.setEnabled(false);
             }
         });
     }

@@ -26,7 +26,7 @@ public class Field {
     }
 
     public void reveal() {
-        if(!revealed) {
+        if(!isRevealed()) {
             System.out.println("Revealed!");
             revealed = true;
         }
@@ -43,4 +43,5 @@ public class Field {
     public int getColumn() {
         return column;
     }
+
 }

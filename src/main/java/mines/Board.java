@@ -1,6 +1,8 @@
 package mines;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Board {
@@ -39,5 +41,33 @@ public class Board {
 
     public int getColumns() {
         return columns;
+    }
+
+    public List<Field> getSurrounding(Field field) {
+        List<Field> surrounding = new ArrayList<>();
+        int top = field.getRow() -  1;
+        int bottom = field.getRow() + 1;
+        int left = field.getColumn() - 1;
+        int right = field.getColumn() + 1;
+        if(top > -1) {
+            surrounding.add(getField(top, field.getColumn()));
+            if(left > -1)
+               surrounding.add(getField(top, left));
+            if(right < rows)
+                surrounding.add(getField(top, right));
+        }
+        if( bottom < rows) {
+            surrounding.add(getField(bottom, field.getColumn()));
+            if(left > -1)
+                surrounding.add(getField(bottom, left));
+            if(right < rows)
+                surrounding.add(getField(bottom, right));
+        }
+        if( left > -1 )
+            surrounding.add(getField(field.getRow(), left));
+        if( right < columns) {
+            surrounding.add(getField(field.getRow(), right));
+        }
+        return surrounding;
     }
 }
