@@ -1,24 +1,38 @@
 package mines;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-/**
- * Created by KY025863 on 2/14/2016.
- */
 public class FieldUI {
 
     private Field field;
     private JButton button;
+    private static final int HEIGHT = 30;
+    private static final int WIDTH = 30;
 
-    public FieldUI() {
+    public FieldUI(Field field) {
+        this.field = field;
         button = new JButton();
+        button.setSize(new Dimension(HEIGHT, WIDTH));
+        button.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                reveal();
+            }
+        });
     }
 
     public Field getField() {
         return field;
     }
 
-    public void setField(Field field) {
-        this.field = field;
+    public JButton getButton() {
+        return button;
+    }
+
+    private void reveal() {
+        field.reveal();
     }
 }

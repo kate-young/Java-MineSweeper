@@ -26,8 +26,8 @@ public class BoardUI {
         panel.setLayout(layout);
         for(int r = 0; r < board.getRows(); r++) {
             for(int c = 0; c < board.getColumns(); c++) {
-                panel.add(new JButton());
-                board.getField(r, c);
+                FieldUI fieldUi = new FieldUI(board.getField(r, c));
+                panel.add(fieldUi.getButton());
             }
         }
     }

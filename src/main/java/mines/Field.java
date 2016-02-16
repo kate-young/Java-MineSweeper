@@ -26,7 +26,10 @@ public class Field {
     }
 
     public void reveal() {
-        this.revealed = true;
+        if(!revealed) {
+            System.out.println("Revealed!");
+            revealed = true;
+        }
     }
 
     public boolean isRevealed() {
