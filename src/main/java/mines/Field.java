@@ -27,7 +27,6 @@ public class Field {
 
     public void reveal() {
         if(!isRevealed()) {
-            System.out.println("Revealed!");
             revealed = true;
         }
     }
