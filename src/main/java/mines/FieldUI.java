@@ -20,7 +20,13 @@ public class FieldUI {
         button.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                String text = Integer.toString(board.getSurroundingMineCount(field));
+                String text;
+                if (field.isMine())
+                    text = "X";
+                else if(board.getSurroundingMineCount(field) == 0)
+                    text = "";
+                else
+                    text = Integer.toString(board.getSurroundingMineCount(field));
                 reveal();
                 button.setEnabled(false);
                 button.setText(text);

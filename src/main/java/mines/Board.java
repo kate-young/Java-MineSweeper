@@ -9,18 +9,29 @@ public class Board {
     private Map<String, Field> fields;
     private int rows;
     private int columns;
+    private int mines;
+    private MineField mineField;
 
-    public Board(int rows, int columns) {
+    public Board(int rows, int columns, int mines) {
         this.rows = rows;
         this.columns = columns;
+        mineField = new MineField(rows, columns, mines);
         generateFields();
     }
 
     private void generateFields() {
         this.fields = new HashMap<>();
+        int counter = 0;
+        Field field;
+
         for(int r = 0; r < this.rows; r++)
             for (int c = 0; c < this.columns; c++) {
-                this.fields.put(r + "_" + c, new Field(r, c));
+                field = new Field(r, c);
+                this.fields.put(r + "_" + c, field);
+                if(mineField.getRandoms().contains(counter)) {
+                   field.addMine();
+                }
+                counter++;
             }
     }
     public Map<String, Field> getFields() {
