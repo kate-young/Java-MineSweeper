@@ -5,19 +5,15 @@ import java.awt.*;
 
 public class BoardUI {
 
-    private Board board;
     private JPanel panel;
     private GridLayout layout;
 
     public BoardUI() {
-        board = Board.getInstance();
-    }
-
-    public Board getBoard() {
-        return board;
+        generateBoard();
     }
 
     public void generateBoard() {
+        Board board = Board.getInstance();
         panel = new JPanel();
         layout = new GridLayout(board.getRows(), board.getColumns());
         panel.setLayout(layout);

@@ -4,13 +4,14 @@ import javax.swing.*;
 
 public class UI {
 
+    static final int MINES = 20;
 
     public static void createAndShowGUI() {
         JFrame frame = new JFrame("MineSweeper");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Board board = new Board();
+        board.addMines(200);
         BoardUI boardUi = new BoardUI();
-        boardUi.generateBoard();
         frame.add(boardUi.getPanel());
         frame.pack();
         frame.setVisible(true);

@@ -26,10 +26,10 @@ public class FieldUI {
                 String text;
                 if (field.isMine())
                     text = "X";
-                else if(board.getSurroundingMineCount(field) == 0)
+                else if(field.getSurroundingMineCount() == 0)
                     text = "";
                 else
-                    text = Integer.toString(board.getSurroundingMineCount(field));
+                    text = Integer.toString(field.getSurroundingMineCount());
                 button.setEnabled(false);
                 button.setText(text);
                 field.reveal();
