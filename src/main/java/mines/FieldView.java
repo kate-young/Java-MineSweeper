@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FieldUI {
+public class FieldView {
 
     private Field field;
     private Board board;
@@ -13,7 +13,7 @@ public class FieldUI {
     private static final int HEIGHT = 30;
     private static final int WIDTH = 30;
 
-    public FieldUI(final Field field, final Board board) {
+    public FieldView(final Field field, final Board board) {
         this.field = field;
         button = new JButton();
         button.setSize(new Dimension(HEIGHT, WIDTH));

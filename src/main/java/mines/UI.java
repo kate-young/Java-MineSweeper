@@ -11,8 +11,8 @@ public class UI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Board board = new Board();
         board.addMines(200);
-        BoardUI boardUi = new BoardUI();
-        frame.add(boardUi.getPanel());
+        BoardView boardView = new BoardView();
+        frame.add(boardView.getPanel());
         frame.pack();
         frame.setVisible(true);
     }

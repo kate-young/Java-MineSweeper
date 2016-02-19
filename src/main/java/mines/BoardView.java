@@ -3,12 +3,12 @@ package mines;
 import javax.swing.*;
 import java.awt.*;
 
-public class BoardUI {
+public class BoardView {
 
     private JPanel panel;
     private GridLayout layout;
 
-    public BoardUI() {
+    public BoardView() {
         generateBoard();
     }
 
@@ -19,7 +19,7 @@ public class BoardUI {
         panel.setLayout(layout);
         for(int r = 0; r < board.getRows(); r++) {
             for(int c = 0; c < board.getColumns(); c++) {
-                FieldUI fieldUi = new FieldUI(board.getField(r, c), board);
+                FieldView fieldUi = new FieldView(board.getField(r, c), board);
                 panel.add(fieldUi.getButton());
             }
         }

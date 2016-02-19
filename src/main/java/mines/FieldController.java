@@ -5,7 +5,7 @@ package mines;
  */
 public class FieldController {
     private Field field;
-    private FieldUI fieldUi;
+    private FieldView fieldUi;
 
     public FieldController() {}
 }
